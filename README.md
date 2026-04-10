@@ -2,7 +2,7 @@
 
 A practical standard for self-healing systems that never “finish”, but continuously stabilize in production.
 
----
+
 
 ## Overview
 
@@ -22,7 +22,7 @@ PFL uses:
 
 This is a loop-based model.
 
----
+
 
 ## Background
 
@@ -39,7 +39,7 @@ Therefore:
 
 PFL embraces this reality.
 
----
+
 
 ## Core Model
 
@@ -62,7 +62,7 @@ Detect → Plan → Fix → Release → Monitor → (Loop)
 - Monitor  
   Observe recurrence and impact
 
----
+
 
 ## Principles
 
@@ -71,14 +71,14 @@ Detect → Plan → Fix → Release → Monitor → (Loop)
 - Fix success ≠ problem solved
 - Completion is determined externally
 
----
+
 
 ### 2. Keep fixes small and frequent
 
 - Large fixes increase risk
 - Small fixes + short loops are optimal
 
----
+
 
 ### 3. Use real-world signals for decisions
 
@@ -88,7 +88,7 @@ Detect → Plan → Fix → Release → Monitor → (Loop)
 
 External observation > internal logic
 
----
+
 
 ## State Model
 
@@ -107,7 +107,7 @@ open
 - “resolved” is time/condition-based
 - “reopened” is a normal path
 
----
+
 
 ## Resolution Conditions (example)
 
@@ -118,7 +118,7 @@ open
 
 Completion is condition-based, not declarative.
 
----
+
 
 ## Architecture
 
@@ -133,7 +133,7 @@ Completion is condition-based, not declarative.
 - Gate  
   Testing and safety validation
 
----
+
 
 ### Loop
 
@@ -145,7 +145,7 @@ Completion is condition-based, not declarative.
 6. Monitor
 → Loop
 
----
+
 
 ## Why it works
 
@@ -154,7 +154,7 @@ Completion is condition-based, not declarative.
 - Enables learning in production
 - Accepts recurrence as normal
 
----
+
 
 ## Anti-patterns
 
@@ -163,7 +163,7 @@ Completion is condition-based, not declarative.
 - Large, risky changes
 - Treating recurrence as failure
 
----
+
 
 ## Use Cases
 
@@ -172,7 +172,7 @@ Completion is condition-based, not declarative.
 - Self-healing systems
 - AI agent-based development
 
----
+
 
 ## Summary
 
@@ -182,7 +182,7 @@ but about:
 
 “Building systems that remain stable even as they continue to break.”
 
----
+
 
 ## Status
 
@@ -190,13 +190,13 @@ PFL is an evolving practical model.
 
 Contributions and real-world cases are welcome.
 
----
+
 
 ## License
 
 MIT
 
----
+
 
 ## Notes
 
