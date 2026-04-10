@@ -1,7 +1,7 @@
 # Persistent Fix Loop (PFL)
 ## A Stabilization Model for Hierarchical AI Systems
 
-
+![PFL Diagram](pfl-simple-diagram.svg)
 
 ## Abstract
 
