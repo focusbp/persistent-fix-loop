@@ -1,7 +1,6 @@
 # Persistent Fix Loop (PFL)
 ## A Stabilization Model for Hierarchical AI Systems
 
-![PFL Diagram](pfl-simple-diagram.svg)
 
 ## Abstract
 
@@ -29,6 +28,8 @@ This paper proposes a shift from completion-based thinking to stabilization-base
 Hierarchical AI is often represented as:
 
 Plan → Execute → Evaluate → Complete
+
+![PFL Diagram](pfl-simple-diagram.svg)
 
 This assumes:
 
