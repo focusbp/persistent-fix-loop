@@ -94,12 +94,18 @@ External observation > internal logic
 
 open
 → analyzing
+
 → patch_ready
+
 → patched
+
 → released
+
 → monitoring
+
 → resolved (external condition)
-↘ reopened (recurrence)
+
+→ reopened (recurrence)
 
 ### Notes
 
