@@ -81,12 +81,12 @@ Detect → Plan → Fix → Release → Monitor → Loop
 
 ### 4.2 Conceptual Shift
 
-| Traditional | PFL |
-||--|
-| Plan = decision | Plan = hypothesis |
-| Execute = completion | Fix = intervention |
-| Evaluate = judgment | Monitor = observation |
-| Complete | Continuous |
+| Traditional              | PFL                    |
+|--------------------------|------------------------|
+| Plan = decision          | Plan = hypothesis      |
+| Execute = completion     | Fix = intervention     |
+| Evaluate = judgment      | Monitor = observation  |
+| Complete                 | Continuous             |
 
 
 
@@ -135,13 +135,13 @@ PFL naturally integrates with hierarchical AI.
 ## 7. State Model
 
 open  
-→ analyzing  
-→ patch_ready  
-→ patched  
-→ released  
-→ monitoring  
-→ resolved (external condition)  
-↘ reopened (recurrence)
+- analyzing  
+  → patch_ready  
+  → patched  
+  → released  
+  → monitoring  
+  → resolved (external condition)  
+  → reopened (recurrence)
 
 ### Key Feature
 “monitoring” is a first-class state.
