@@ -67,7 +67,7 @@ Detect → Plan → Fix → Release → Monitor → Loop
 ### 4.2 Conceptual Shift
 
 | Traditional              | PFL                    |
-|--||
+|:-------------------------|:----------------------|
 | Plan = decision          | Plan = hypothesis      |
 | Execute = completion     | Fix = intervention     |
 | Evaluate = judgment      | Monitor = observation  |
