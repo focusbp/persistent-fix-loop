@@ -1,0 +1,79 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#334155"/>
+    </marker>
+    <style>
+      .title { font: 700 34px Arial, Helvetica, sans-serif; fill: #111827; }
+      .section { font: 700 26px Arial, Helvetica, sans-serif; fill: #111827; }
+      .boxtext { font: 700 22px Arial, Helvetica, sans-serif; fill: #111827; text-anchor: middle; dominant-baseline: middle; }
+      .body { font: 400 18px Arial, Helvetica, sans-serif; fill: #374151; }
+      .small { font: 400 16px Arial, Helvetica, sans-serif; fill: #4B5563; }
+      .em-red { font: 700 18px Arial, Helvetica, sans-serif; fill: #B91C1C; }
+      .em-blue { font: 700 18px Arial, Helvetica, sans-serif; fill: #1D4ED8; }
+    </style>
+  </defs>
+
+  <rect width="1400" height="900" fill="#FFFFFF"/>
+
+  <text x="700" y="60" class="title" text-anchor="middle">Persistent Fix Loop (PFL)</text>
+  <text x="700" y="95" class="body" text-anchor="middle">From completion-oriented pipeline to observation-driven stabilization</text>
+
+  <!-- Left -->
+  <rect x="60" y="140" width="600" height="620" rx="20" ry="20" fill="#F9FAFB" stroke="#D1D5DB" stroke-width="2"/>
+  <text x="360" y="185" class="section" text-anchor="middle">Fragile Pipeline</text>
+  <text x="360" y="215" class="small" text-anchor="middle">Assumes clean completion</text>
+
+  <rect x="150" y="270" width="420" height="72" rx="14" ry="14" fill="#FFFFFF" stroke="#9CA3AF" stroke-width="2"/>
+  <text x="360" y="306" class="boxtext">Plan</text>
+
+  <line x1="360" y1="342" x2="360" y2="390" stroke="#334155" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <rect x="150" y="400" width="420" height="72" rx="14" ry="14" fill="#FFFFFF" stroke="#9CA3AF" stroke-width="2"/>
+  <text x="360" y="436" class="boxtext">Execute</text>
+
+  <line x1="360" y1="472" x2="360" y2="520" stroke="#334155" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <rect x="150" y="530" width="420" height="72" rx="14" ry="14" fill="#FFFFFF" stroke="#9CA3AF" stroke-width="2"/>
+  <text x="360" y="566" class="boxtext">Evaluate</text>
+
+  <line x1="360" y1="602" x2="360" y2="650" stroke="#334155" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <rect x="150" y="660" width="420" height="72" rx="14" ry="14" fill="#FEF2F2" stroke="#F87171" stroke-width="2"/>
+  <text x="360" y="696" class="boxtext">Complete</text>
+
+  <text x="360" y="792" class="em-red" text-anchor="middle">Breaks when plans drift, execution returns,</text>
+  <text x="360" y="818" class="em-red" text-anchor="middle">or evaluation depends on external reality</text>
+
+  <!-- Right -->
+  <rect x="740" y="140" width="600" height="620" rx="20" ry="20" fill="#EFF6FF" stroke="#93C5FD" stroke-width="2"/>
+  <text x="1040" y="185" class="section" text-anchor="middle">Resilient Loop (PFL)</text>
+  <text x="1040" y="215" class="small" text-anchor="middle">Does not require internal completion</text>
+
+  <rect x="830" y="270" width="420" height="72" rx="14" ry="14" fill="#FFFFFF" stroke="#60A5FA" stroke-width="2"/>
+  <text x="1040" y="306" class="boxtext">Detect</text>
+
+  <line x1="1040" y1="342" x2="1040" y2="390" stroke="#334155" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <rect x="830" y="400" width="420" height="72" rx="14" ry="14" fill="#FFFFFF" stroke="#60A5FA" stroke-width="2"/>
+  <text x="1040" y="436" class="boxtext">Plan / Fix / Release</text>
+
+  <line x1="1040" y1="472" x2="1040" y2="520" stroke="#334155" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <rect x="830" y="530" width="420" height="72" rx="14" ry="14" fill="#FFFFFF" stroke="#60A5FA" stroke-width="2"/>
+  <text x="1040" y="566" class="boxtext">Monitor</text>
+
+  <path d="M830,566 C770,566 770,306 830,306" fill="none" stroke="#1D4ED8" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <text x="1040" y="660" class="em-blue" text-anchor="middle">Not completion-oriented</text>
+  <text x="1040" y="690" class="em-blue" text-anchor="middle">Observation-driven</text>
+  <text x="1040" y="720" class="em-blue" text-anchor="middle">Stabilization, not correctness</text>
+
+  <!-- Bottom comparison -->
+  <rect x="60" y="800" width="1280" height="70" rx="12" ry="12" fill="#FFFFFF" stroke="#D1D5DB" stroke-width="2"/>
+  <text x="120" y="843" class="body">Pipeline:</text>
+  <text x="210" y="843" class="small">tries to finish</text>
+  <text x="610" y="843" class="body">PFL:</text>
+  <text x="680" y="843" class="small">keeps the system stable while reality keeps changing</text>
+</svg>
