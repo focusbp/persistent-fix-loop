@@ -1,219 +1,205 @@
 # Persistent Fix Loop (PFL)
+## A Stabilization Model for Hierarchical AI Under Imperfect Planning, Execution, and Evaluation
 
-A practical standard for self-healing systems that never “finish”, but continuously stabilize in production.
 
 
+## Abstract
 
-## Overview
+Hierarchical AI systems are commonly modeled as a linear pipeline: Plan → Execute → Evaluate → Complete.
+However, in real-world production environments, this model frequently breaks down due to drift, uncertainty, and external dependencies.
 
-Persistent Fix Loop (PFL) is a design model that does not try to “complete” fixes.
+This paper introduces the Persistent Fix Loop (PFL), a practical design model that replaces completion-oriented pipelines with a continuous stabilization loop.
 
-Instead, it assumes:
+Rather than attempting to achieve perfect planning, execution, and evaluation, PFL assumes imperfection and builds systems that remain stable through continuous observation and incremental repair.
 
-→ Systems should continuously stabilize through observation.
 
-Rather than:
 
-- Design → Implement → Test → Complete
+## 1. Introduction
 
-PFL uses:
+Hierarchical AI systems are widely used to decompose complex tasks into structured workflows.
 
-- Observe → Fix → Release → Observe → …
+Typical architecture:
+- Planner (high-level reasoning)
+- Executor (task execution)
+- Evaluator (validation)
 
-This is a loop-based model.
+In theory, this enables reliable task completion.
 
+In practice, however, this structure is fragile.
 
 
-## Background
 
-In real systems:
+## 2. Problem Statement
 
-- Requirements change
-- Environments change
-- Data changes
-- Perfect fixes cannot be defined
+Hierarchical AI is often described as:
 
-Therefore:
+Plan → Execute → Evaluate → Complete
 
-→ Defining “completion” internally becomes a source of instability
+This assumes:
+- Plans remain valid during execution
+- Execution follows expected paths
+- Evaluation criteria are stable
+- Completion can be determined internally
 
-PFL embraces this reality.
+These assumptions rarely hold in production systems.
 
+### 2.1 Failure Modes
 
+1. Plan Drift  
+   Plans degrade when exposed to real environments.
 
-## Core Model
+2. Execution Uncertainty  
+   Unexpected constraints emerge during execution.
 
-Detect → Plan → Fix → Release → Monitor → (Loop)
+3. Evaluation Instability  
+   Success criteria depend on external context.
 
-### Steps
+4. Completion Ambiguity  
+   Systems cannot reliably determine when a problem is “solved”.
 
-- Detect  
-  Detect errors or anomalies
 
-- Plan  
-  Decide a fix strategy (hypothesis)
 
-- Fix  
-  Apply localized fixes
+## 3. Key Insight
 
-- Release  
-  Deploy to production
+The core issue is not hierarchical structure itself, but treating it as a **linear completion pipeline**.
 
-- Monitor  
-  Observe recurrence and impact
+Instead of:
 
+Plan → Execute → Evaluate → Complete
 
+We propose:
 
-## Principles
+**Observation-driven iterative stabilization**
 
-### 1. Do not internally define “completion”
 
-- Fix success ≠ problem solved
-- Completion is determined externally
 
+## 4. Persistent Fix Loop (PFL)
 
+### 4.1 Core Model
 
-### 2. Keep fixes small and frequent
+Detect → Plan → Fix → Release → Monitor → Loop
 
-- Large fixes increase risk
-- Small fixes + short loops are optimal
+### 4.2 Conceptual Shift
 
+| Traditional | PFL |
+||--|
+| Plan = decision | Plan = hypothesis |
+| Execute = completion | Fix = intervention |
+| Evaluate = judgment | Monitor = observation |
+| Complete | Continuous |
 
 
-### 3. Use real-world signals for decisions
 
-- Logs
-- Production behavior
-- Recurrence rate
+## 5. Design Principles
 
-External observation > internal logic
+### 5.1 Planning is Provisional
+Plans are hypotheses, not commitments.
 
+### 5.2 Execution is Local
+Fixes should be small, scoped, and reversible.
 
+### 5.3 Evaluation is Observational
+Resolution is determined by real-world behavior, not internal declaration.
 
-## State Model
 
-open
-→ analyzing
 
-→ patch_ready
+## 6. Hierarchical AI Integration
 
-→ patched
+PFL naturally integrates with hierarchical AI.
 
-→ released
+### 6.1 Roles
 
-→ monitoring
+- Supervisor
+  - Planning
+  - Evaluation
+  - State management
 
-→ resolved (external condition)
+- Worker
+  - Implementation
+  - Local fixes
 
-→ reopened (recurrence)
+- System
+  - Real-world environment
 
-### Notes
+### 6.2 Loop
 
-- “monitoring” is a primary state
-- “resolved” is time/condition-based
-- “reopened” is a normal path
+1. Detect issue  
+2. Supervisor plans  
+3. Worker applies fix  
+4. System reflects change  
+5. Supervisor monitors  
+6. Repeat  
 
 
 
-## Resolution Conditions (example)
+## 7. State Model
 
-- No recurrence for a defined period (e.g., 72 hours)
-- Alerts below threshold
-- Core functions healthy
-- Optional human validation
+open  
+→ analyzing  
+→ patch_ready  
+→ patched  
+→ released  
+→ monitoring  
+→ resolved (external condition)  
+↘ reopened (recurrence)
 
-Completion is condition-based, not declarative.
+### Key Feature
+“monitoring” is a first-class state.
 
 
 
-## Architecture
+## 8. Resolution Strategy
 
-### Roles
+Resolution is not declared internally.
 
-- Supervisor  
-  State management, planning, evaluation
+Instead, it is determined by:
+- No recurrence over time
+- Stable system behavior
+- External validation
 
-- Worker  
-  Fix implementation
 
-- Gate  
-  Testing and safety validation
 
+## 9. Advantages
 
-
-### Loop
-
-1. Detect
-2. Supervisor: Plan
-3. Worker: Fix
-4. Gate: Validate
-5. Release
-6. Monitor
-→ Loop
-
-
-
-## Why it works
-
-- Reduces context complexity
+- Handles uncertainty naturally
 - Avoids infinite optimization
-- Enables learning in production
-- Accepts recurrence as normal
+- Improves stability in production
+- Enables continuous learning
 
 
 
-## Anti-patterns
+## 10. Discussion
 
-- Trying to achieve perfect fixes
-- Declaring completion internally
-- Large, risky changes
-- Treating recurrence as failure
+PFL represents a shift from completion-based thinking to stability-based thinking.
 
+Rather than asking:
+“Is the problem solved?”
 
-
-## Use Cases
-
-- Production systems
-- Continuous delivery environments
-- Self-healing systems
-- AI agent-based development
+It asks:
+“Is the system stable under observation?”
 
 
 
-## Summary
+## 11. Conclusion
 
-Not about fixing once,
+Hierarchical AI does not fail because of its structure.
 
-but about:
+It fails because it assumes perfect completion.
 
-“Building systems that remain stable even as they continue to break.”
+PFL removes this assumption and replaces it with a continuous stabilization model.
+
+This enables hierarchical AI to operate effectively in real-world environments.
 
 
 
-## Status
+## 12. Future Work
 
-PFL is an evolving practical model.
-
-Contributions and real-world cases are welcome.
+- Empirical validation
+- Benchmarking stability vs completion models
+- Integration with production systems
 
 
 
 ## License
 
 MIT
-
-
-
-## Notes
-
-This model is not suitable for:
-
-- Fully static systems
-- Problems requiring strict completion
-
-It is designed for:
-
-→ Dynamic, uncertain, real-world systems
-
-
-
